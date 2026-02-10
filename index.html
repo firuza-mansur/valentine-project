@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Photobooth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="assets/lovestory.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-container">
+        
+        <section id="home-screen" class="glass-card">
+            <div class="header-section">
+                <img src="assets/heart.svg" class="heart-icon" alt="heart">
+                <h1 class="title">Happy Valentine's Day</h1>
+                <img src="assets/heart.svg" class="heart-icon" alt="heart">
+            </div>
+            
+            <div class="icon-container">
+                <img src="assets/camera.svg" class="main-camera-img" alt="camera">
+            </div>
+
+            <button id="start-btn" class="select-button">Select</button>
+        </section>
+
+        <section id="selection-screen" class="glass-card hidden">
+            <div class="options-wrapper">
+                <div class="option-row">
+                    <button id="take-photo-btn" class="action-btn">Take Photo</button>
+                    <img src="assets/heart.svg" class="btn-heart" alt="heart">
+                </div>
+
+                <div class="option-row">
+                    <img src="assets/heart.svg" class="btn-heart" alt="heart">
+                    <button id="upload-photo-btn" class="action-btn">Upload Photos</button>
+                    <input type="file" id="file-input" accept="image/*" class="hidden">
+                </div>
+            </div>
+        </section>
+
+        <section id="camera-screen" class="glass-card hidden">
+            <div class="camera-wrapper">
+                <div id="countdown" class="countdown-overlay hidden">3</div>
+                <video id="webcam" autoplay playsinline></video>
+                <button id="capture-btn" class="capture-button">Take Photo!</button>
+            </div>
+            <canvas id="photo-canvas" class="hidden"></canvas>
+        </section>
+
+        <section id="result-screen" class="glass-card hidden">
+            <div class="polaroid-frame">
+                <img id="final-photo" src="" alt="Captured Photo">
+            </div>
+
+            <div class="text-input-wrapper" style="margin-bottom: 15px; width: 100%; max-width: 350px;">
+                <input type="text" id="custom-text-input" placeholder="Write here your message..." maxlength="25" 
+                style="width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; font-family: 'Poppins', sans-serif; text-align: center;">
+            </div>
+
+            <div class="filter-options">
+                <button class="filter-btn active" data-filter="none">Original</button>
+                <button class="filter-btn" data-filter="grayscale">B/W</button>
+                <button class="filter-btn" data-filter="sepia">Pink</button>
+                <button class="filter-btn" data-filter="heart">Special</button>
+            </div>
+
+            <div class="result-actions">
+                <button onclick="location.reload()" class="select-button">Try again</button>
+                <button id="download-btn" class="select-button" style="background-color: #28a745;">Save</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
